@@ -1,0 +1,6 @@
+1. Przygotuj sprzęt. Ustaw monitor obok laptopa i upewnij się, że oba urządzenia są wyłączone.
+2. Podłącz kabel HDMI. Włóż jedną końcówkę do gniazda HDMI w laptopie, a drugą do gniazda HDMI w monitorze.
+3. Włącz urządzenia. Podłącz monitor do zasilania, włącz go, a następnie uruchom laptop.
+4. Wybierz źródło obrazu. Przyciskiem menu monitora wybierz wejście HDMI.
+5. Ustaw sposób wyświetlania. W Windows 11 naciśnij Win + P i wybierz „Rozszerz” lub „Duplikuj”.
+6. Sprawdź rozdzielczość. Kliknij prawym przyciskiem pulpit, wybierz „Ustawienia ekranu”, wskaż monitor i sprawdź rozdzielczość. W razie potrzeby wybierz zalecaną wartość.
