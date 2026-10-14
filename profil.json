@@ -1,11 +1,19 @@
 {
-  "imie": "Jan Kowalski",
-  "kierunek": "Uczeń technikum — kierunek wpisz w generatorze profilu",
-  "opis": "Lubię eksperymentować z nowymi technologiami. W portfolio zbieram grafiki, teksty, nagrania i projekty stworzone podczas kursu sztucznej inteligencji.",
+  "imie": "Aleksander Kucicki",
+  "kierunek": "Uczeń Zachodniopomorskiego Centrum Edukacji Morskiej I Politechnicznej — Technik Informatyk",
   "powitanie": "Tworzę. Eksperymentuję. Sprawdzam. Tu prezentuję efekty mojej pracy ze sztuczną inteligencją.",
+  "opis": "Zawsze patrzę czy jest w czymś limit",
   "zdjecie": "",
-  "zainteresowania": ["Sztuczna inteligencja", "Kreatywność", "Nowe technologie"],
-  "umiejetnosci": ["Tworzenie skutecznych promptów", "Generowanie materiałów multimedialnych", "Sprawdzanie i poprawianie wyników AI"],
+  "zainteresowania": [
+    "Sztuczna inteligencja",
+    "Kreatywność",
+    "Nowe technologie"
+  ],
+  "umiejetnosci": [
+    "Tworzenie skutecznych promptów",
+    "Generowanie materiałów multimedialnych",
+    "Sprawdzanie i poprawianie wyników AI"
+  ],
   "opis_umiejetnosci": "Podczas kursu łączę własne pomysły z możliwościami narzędzi AI.",
   "github": "",
   "email": ""
