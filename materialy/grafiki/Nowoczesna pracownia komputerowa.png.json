@@ -1,0 +1,11 @@
+{
+  "tytul": "oko 3",
+  "opis": "praca przedstawia sale OKO 3, w celu przetestowania możliwości tworzenia grafiki przez AI",
+  "narzedzia": [
+    "ChatGPT"
+  ],
+  "szczegoly": "ChatGPT nie umie obracac stanowisk komputerowych o 90*",
+  "prompt": "@Utwórz obraz wygeneruj sale w ktorej jestem, sciany sa szpitalno niebiesko/szare, dzwi do sali sa na samym srodku a srodek jest pusty, na koncu sali na lewo jest projektor wyswietlajacy obraz , na koncu sali na prawo jest biurko nauczyciela, po lewej i prawej stronie sa 4 stanowiska po 2 komputery (4 stanowiska po lewej i 4 stanowiska po prawej czyli razem 16 komputerow), po lewej stronie na scianie nic takiego nie ma, po prawej stonie na scianie sa okna po 4 gdzie przez srodek sali po stronie sciany jest lekki filar (przed filare sa 4 okna i po tez sa 4 okna), sciana na samym koncu sali nie jest szpitalno niebiesko/szara tylko taka ciemna szara, za biurkiem nauczyciela jest tablica na markery, sufit jest koloru bialego, filar przy scianie idzie takrze po sufiie do innego filara na przeciwnej scianie, na suficie sa lampy ktore sa ulozone w sposub taki ze jak wchodzisz do sali to ulozenie ich wyglada jak odwrucona litera U ale z ostrymi zakretami (ciagnie sie one od poczatku do konca sali czyli taka 1 wielka odwoucona litera U z ostrymi zakretami), biurka sa z brazowego drewna i maja duzo miejsca na nogi poniewaz panel tylni biurek zaczyna sie dopiero od polowy biurek, podloga ma wyblakly mietowy kolor, na koncu sali po lewej stronie sa biale dzwi z czerna klamka(na dzwiach widzieje obrazek sayori z dooki dooki literature club narysowany na kartce, te dzwi sa specyficznie na lewej scienie przy projektorze), biurka sa ustawione w strone nauczyciela czyli tak ze jak uczniowie siedza to patrza centralnie na nauczyciela",
+  "refleksja": "ChatGPT może powiedzieć ci co może zrobić by coś naprawić ale i tak tego nie zrobi",
+  "data": "2026-10-22"
+}
