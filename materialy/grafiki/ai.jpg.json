@@ -1,0 +1,11 @@
+{
+  "tytul": "sala oko 3 po ai",
+  "opis": "rozszerzenie obrazu sala oko 3",
+  "narzedzia": [
+    "Gemini"
+  ],
+  "szczegoly": "",
+  "prompt": "\"rozszerz ten obraz\" następnie powtarzanie \"jeszcze\"",
+  "refleksja": "jeśli gemini dostanie sale informatyczną z poleceniem \"rozszerz\" a następnie poleceniem \"jeszcze\" to sala komputerowa stanie nie magazynem wody",
+  "data": "2026-10-26"
+}
