@@ -1,0 +1,11 @@
+{
+  "tytul": "Film z Ai",
+  "opis": "pusta sala komputerowa",
+  "narzedzia": [
+    "Canva"
+  ],
+  "szczegoly": "",
+  "prompt": "pusta sala komputerowa. kamera nieruchoma. firanka delikatnie porusza sie na wietrze. w promieniu swiatla powoli unosza sie drobinki kurzu",
+  "refleksja": "adobe firefly uwielbia mowic \"Coś poszło nie tak. Spróbuj ponownie.\" lub \"Osiągnięto dzisiejszy limit tworzenia\"",
+  "data": "2026-10-28"
+}
