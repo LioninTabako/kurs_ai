@@ -1,0 +1,907 @@
+1
+00:00:00,720 --> 00:00:04,300
+(Ztranskrybowane przez TurboScribe. Przejdź na Nielimitowany, aby usunąć tę wiadomość.) Przypomnijcie sobie Borderlandsy, to ich charakterystyczną uprawę graficzną
+
+2
+00:00:04,300 --> 00:00:07,400
+z wykorzystaniem Cell Shadingu i wszystkie typowe elementy
+
+3
+00:00:07,400 --> 00:00:08,220
+Looter Shooter'a.
+
+4
+00:00:08,540 --> 00:00:11,120
+A teraz przypomnijcie sobie Titanfalla i ten jego
+
+5
+00:00:11,120 --> 00:00:12,800
+movement i ciągłe bycie w ruchu.
+
+6
+00:00:13,060 --> 00:00:15,040
+A teraz połączcie te rzeczy i wyobraźcie sobie
+
+7
+00:00:15,040 --> 00:00:16,260
+to w formie Rogue Like'a.
+
+8
+00:00:16,520 --> 00:00:16,840
+Macie?
+
+9
+00:00:17,080 --> 00:00:18,460
+Bo jeśli tak, no to mam nadzieję, że
+
+10
+00:00:18,460 --> 00:00:19,840
+wyszło wam mniej więcej coś takiego.
+
+11
+00:00:29,680 --> 00:00:32,120
+Robo Quest, bo to o tej grze zamierzało
+
+12
+00:00:32,120 --> 00:00:34,640
+dzisiaj opowiedzieć, to właśnie połączenie wspomnianych przed chwilą
+
+13
+00:00:34,640 --> 00:00:36,640
+elementów osadone w formie Rogue Like'a.
+
+14
+00:00:36,640 --> 00:00:38,540
+Nie jest to gra, o której zamierzałem tworzyć
+
+15
+00:00:38,540 --> 00:00:40,460
+jakikolwiek materiał, ale z racji tego, że do
+
+16
+00:00:40,460 --> 00:00:43,040
+kolejnego zaplanowanego filmu zostało mi jeszcze trochę czasu,
+
+17
+00:00:43,220 --> 00:00:45,520
+a Robo Quest zasługuje na więcej rozgłosu, to
+
+18
+00:00:45,520 --> 00:00:48,000
+uznałem, że przedstawię wam, co takiego faktycznie zachwyciło
+
+19
+00:00:48,000 --> 00:00:49,460
+mnie w tej grze i co być może
+
+20
+00:00:49,460 --> 00:00:50,560
+zachwycić również i was.
+
+21
+00:00:50,820 --> 00:00:52,340
+Ale najpierw czym w ogóle jest ten Robo
+
+22
+00:00:52,340 --> 00:00:52,600
+Quest?
+
+23
+00:00:52,800 --> 00:00:54,480
+Tak jak wspomniałem przed chwilą, jest to FPS
+
+24
+00:00:54,480 --> 00:00:55,580
+w formie Rogue Like'a.
+
+25
+00:00:55,660 --> 00:00:57,620
+Jeśli graliście w jakiekolwiek gry z tego gatunku,
+
+26
+00:00:58,140 --> 00:00:59,740
+no to na pewno szybko załapiecie o co
+
+27
+00:00:59,740 --> 00:01:00,580
+dokładnie tutaj chodzi.
+
+28
+00:01:00,980 --> 00:01:03,560
+Każdą rozgrywkę zaczynamy oczywiście od naszej bazy wypadowej,
+
+29
+00:01:03,660 --> 00:01:06,020
+gdzie możemy wybrać klasy postaci i ulepszyć rozmaite
+
+30
+00:01:06,020 --> 00:01:06,920
+elementy rozgrywki.
+
+31
+00:01:07,100 --> 00:01:09,260
+Następnie po prostu przechodzimy na startową mapę i
+
+32
+00:01:09,260 --> 00:01:10,080
+zaczynamy zabawę.
+
+33
+00:01:10,220 --> 00:01:12,300
+Przebijając się przez kolejne lokacje i fale wrogów,
+
+34
+00:01:12,480 --> 00:01:15,000
+zdobywamy nowe bronie oraz ulepszenia i próbujemy dotrzeć
+
+35
+00:01:15,000 --> 00:01:17,460
+do finalnej miejscówki, gdzie czeka na nas najpotężniejszy
+
+36
+00:01:17,460 --> 00:01:17,680
+boss.
+
+37
+00:01:17,900 --> 00:01:19,680
+Nie jest to oczywiście łatwe zadanie, bo giniemy
+
+38
+00:01:19,680 --> 00:01:21,880
+tutaj cały czas, ale pozwala nam to oczywiście
+
+39
+00:01:21,880 --> 00:01:24,040
+na ulepszenie różnych rzeczy i przede wszystkim na
+
+40
+00:01:24,040 --> 00:01:25,580
+odkrywanie kolejnych elementów gry.
+
+41
+00:01:25,780 --> 00:01:27,980
+Tak w wielkim skrócie można właśnie opisać rozgrywkę
+
+42
+00:01:27,980 --> 00:01:29,600
+w Robo Quest'ie, ale jest to duże
+
+43
+00:01:29,600 --> 00:01:31,800
+upraszczenie, bo złożoność tej zabawy jest tutaj naprawdę
+
+44
+00:01:31,800 --> 00:01:34,280
+na wysokim poziomie, ale o tym troszkę później,
+
+45
+00:01:34,460 --> 00:01:36,320
+bo jeśli oglądacie ten film, to najpewniej dlatego,
+
+46
+00:01:36,840 --> 00:01:38,840
+że w tytule i w miniaturce umieściłem Borderlands
+
+47
+00:01:38,840 --> 00:01:39,820
+'y i Titanfall'a.
+
+48
+00:01:39,900 --> 00:01:41,420
+Dlatego jestem Wam w innym wyjaśnieniu.
+
+49
+00:01:41,540 --> 00:01:43,800
+Robo Quest faktycznie ma w sobie elementy, które
+
+50
+00:01:43,800 --> 00:01:45,180
+znajdziemy w obu tych produkcjach.
+
+51
+00:01:45,360 --> 00:01:48,180
+Zaczynając od Borderlands'ów mamy oczywiście oprawę wizualną,
+
+52
+00:01:48,260 --> 00:01:50,200
+który chyba nawet nie trzeba konkretnie wskazywać.
+
+53
+00:01:50,340 --> 00:01:52,640
+To charakterystyczny cel shading, który z miejsca kojarzony
+
+54
+00:01:52,640 --> 00:01:53,660
+jest serią Borderlands.
+
+55
+00:01:53,820 --> 00:01:55,520
+Ale podobnie z mam więcej, bo Robo Quest
+
+56
+00:01:55,520 --> 00:01:58,120
+w podstawach swojej rozgrywki ma również elementy typowego
+
+57
+00:01:58,120 --> 00:01:58,980
+Looter Shooter'a.
+
+58
+00:01:59,180 --> 00:02:01,480
+Podczas przydzierania się przez różne lokacje i siekania
+
+59
+00:02:01,480 --> 00:02:04,400
+przeciwników dość często będziemy mieli możliwość wymiany broni
+
+60
+00:02:04,400 --> 00:02:04,900
+na inną.
+
+61
+00:02:04,980 --> 00:02:07,300
+Arsenał broni jest tutaj naprawdę spory i bez
+
+62
+00:02:07,300 --> 00:02:09,520
+żadnego zastanowienia jestem w stanie stwierdzić, że każdy
+
+63
+00:02:09,520 --> 00:02:11,020
+znajdzie wśród nich swoją ulubioną.
+
+64
+00:02:11,160 --> 00:02:15,140
+Mamy karabiny, pistolety, snajperki, kusze, łuk, shotguny, bronie
+
+65
+00:02:15,140 --> 00:02:18,560
+eksplodujące, podpalające, zamrażające i wiele, wiele więcej.
+
+66
+00:02:18,960 --> 00:02:21,720
+Bronie mają konkretne poziomy rzadkości, określające ich moc,
+
+67
+00:02:21,900 --> 00:02:23,700
+a także losowa fixy, które sprawiają, że nawet
+
+68
+00:02:23,700 --> 00:02:26,220
+wybierając tę samą brońco wcześniej może zachowywać się
+
+69
+00:02:26,220 --> 00:02:27,000
+ona nieco inaczej.
+
+70
+00:02:27,280 --> 00:02:29,920
+No Looter Shooter jak malowany, chociaż trzeba zaznaczyć,
+
+71
+00:02:29,920 --> 00:02:31,640
+że broni nie wypada aż tyle co w
+
+72
+00:02:31,640 --> 00:02:34,560
+borderlandsach, ale moim zdaniem zostało to odpowiednio zbalansowane
+
+73
+00:02:34,560 --> 00:02:35,900
+właśnie na potrzeby roglajka.
+
+74
+00:02:36,060 --> 00:02:38,020
+Sprawa z Titanfallem jest nieco mniej widoczna na
+
+75
+00:02:38,020 --> 00:02:40,160
+pierwszy rzut oka, ale myślę, że zaraz doskonale
+
+76
+00:02:40,160 --> 00:02:41,480
+zrozumiecie o czym mówię.
+
+77
+00:02:41,580 --> 00:02:43,860
+Bo jeśli graliście nieco w multiplayer w Titanfallu,
+
+78
+00:02:43,940 --> 00:02:45,460
+to na pewno doskonale wiecie, że nie ma
+
+79
+00:02:45,460 --> 00:02:46,600
+tam miejsca na chwilę spokoju.
+
+80
+00:02:46,700 --> 00:02:49,180
+Potyczki są bardzo dynamiczne, bo ciągle się poruszamy
+
+81
+00:02:49,180 --> 00:02:51,540
+goniąc za przeciwnikiem lub też wyciekając przed nim.
+
+82
+00:02:51,640 --> 00:02:52,820
+I w robokości jest podobnie.
+
+83
+00:02:53,100 --> 00:02:54,980
+Zapomnijcie o stanie w miejscu i strzelaniu, bo
+
+84
+00:02:54,980 --> 00:02:56,800
+będzie to po prostu oznaczało rychłą śmierć.
+
+85
+00:02:56,800 --> 00:02:58,860
+Musimy być w ciągłym ruchu, zarówno na ziemi,
+
+86
+00:02:59,240 --> 00:02:59,980
+jak i w powietrzu.
+
+87
+00:03:00,100 --> 00:03:02,300
+Dodatkowo podobieństwo odnajduje w samym mowmencie.
+
+88
+00:03:02,460 --> 00:03:04,300
+Na startu mamy co prawda od dyspozycji tylko
+
+89
+00:03:04,300 --> 00:03:07,080
+w śliski i nabeljampa, ale w zupełności wystarcza
+
+90
+00:03:07,080 --> 00:03:08,420
+to, aby zrozumieć o czym mówię.
+
+91
+00:03:08,620 --> 00:03:09,900
+Jest szybko i dynamicznie.
+
+92
+00:03:10,020 --> 00:03:12,620
+Potem w ramach odblokowywania nowych rzeczy otrzymujemy dostęp
+
+93
+00:03:12,620 --> 00:03:14,940
+do na przykład Grapping Hooka i Jetpacka, co
+
+94
+00:03:14,940 --> 00:03:17,000
+sprawia, że po tyczki poruszania się wchodzą na
+
+95
+00:03:17,000 --> 00:03:19,120
+jeszcze inny poziom, bo znacznie więcej czasu spędzamy
+
+96
+00:03:19,120 --> 00:03:21,400
+w powietrzu, podobnie zresztą jak właśnie w Titanfallu.
+
+97
+00:03:21,400 --> 00:03:23,600
+Brakuje tak naprawdę tylko obiegania po ścianach i
+
+98
+00:03:23,600 --> 00:03:24,040
+mechów.
+
+99
+00:03:24,180 --> 00:03:26,300
+Zaznaczę jednak od razu, że Titanfall wciąż dostaje
+
+100
+00:03:26,300 --> 00:03:28,700
+dla mnie topową produkcję pod względem tego rodzaju
+
+101
+00:03:28,700 --> 00:03:31,140
+dynamicznego movementu, jednak Robo Quest też robi to
+
+102
+00:03:31,140 --> 00:03:32,100
+wszystko naprawdę dobrze.
+
+103
+00:03:32,320 --> 00:03:35,040
+Na uwagę zasługuje również muzyka, która tylko podkręca
+
+104
+00:03:35,040 --> 00:03:35,860
+te wszystkie doznania.
+
+105
+00:03:36,120 --> 00:03:37,840
+Zobaczcie ze sztą sami i powietrze, że nie
+
+106
+00:03:37,840 --> 00:03:38,940
+wygląda to jak dobra zabawa.
+
+107
+00:03:50,630 --> 00:03:54,070
+Już łącząc tylko te wcześniej wymienione elementy, otrzymalibyśmy
+
+108
+00:03:54,070 --> 00:03:56,690
+bardzo przyjemnego Luther Shooter, a z dynamicznym movementem.
+
+109
+00:03:56,850 --> 00:03:57,310
+No ale nie.
+
+110
+00:03:57,710 --> 00:03:59,390
+Twórcy odważyli się w pakować to wszystko w
+
+111
+00:03:59,390 --> 00:04:01,110
+formę Rogue-like'a i moim zdaniem wyszło
+
+112
+00:04:01,110 --> 00:04:01,710
+im to na dobre.
+
+113
+00:04:02,070 --> 00:04:04,770
+Nie zaznaczałem tego wcześniej, ale podczas każdej wyprawy
+
+114
+00:04:04,770 --> 00:04:07,130
+levelujemy naszego bohatera i co jakiś czas wybieramy
+
+115
+00:04:07,130 --> 00:04:09,030
+perki, które są w stanie na różne sposoby
+
+116
+00:04:09,030 --> 00:04:10,050
+zmienić naszą rozgrywkę.
+
+117
+00:04:10,250 --> 00:04:11,390
+No i jeśli gracie w Rogue-like'i
+
+118
+00:04:11,390 --> 00:04:13,070
+to doskonale wiecie, że o to w tym
+
+119
+00:04:13,070 --> 00:04:14,010
+wszystkim właśnie chodzi.
+
+120
+00:04:14,250 --> 00:04:16,649
+Za każdym razem jesteśmy popechani do dobierania build
+
+121
+00:04:16,649 --> 00:04:18,470
+-u w taki sposób, który najlepiej pasuje do
+
+122
+00:04:18,470 --> 00:04:21,230
+naszej obecnej sytuacji, czyli do zdobytych broni wybranych
+
+123
+00:04:21,230 --> 00:04:21,990
+wcześniej perków.
+
+124
+00:04:22,190 --> 00:04:25,130
+Oczywiście wielu kombinacji połączeń wyuczymy się dopiero po
+
+125
+00:04:25,130 --> 00:04:25,710
+jakimś czasie.
+
+126
+00:04:25,930 --> 00:04:27,370
+Na starcie po prostu nie jesteśmy w stanie
+
+127
+00:04:27,370 --> 00:04:29,930
+wiedzieć, co najlepiej zesła współgra, dlatego pierwsze rany
+
+128
+00:04:29,930 --> 00:04:31,470
+będą kądziecie raczej dość szybko.
+
+129
+00:04:31,590 --> 00:04:33,110
+Jak już wyczujemy, co w naszych rękach sprawdza
+
+130
+00:04:33,110 --> 00:04:35,070
+się najlepiej, to będziemy w stanie pogresować do
+
+131
+00:04:35,070 --> 00:04:35,830
+kolejnych etapów.
+
+132
+00:04:36,070 --> 00:04:39,270
+Pomiędzy ranami możemy oczywiście ulepszać niektóre elementy rozgrywki,
+
+133
+00:04:39,350 --> 00:04:40,950
+takie jak na przykład większa ilość broni do
+
+134
+00:04:40,950 --> 00:04:42,610
+wyboru, a także zmieniać bohatera.
+
+135
+00:04:42,930 --> 00:04:45,510
+Dostępnych do doblokowania jest sześć postaci i każda
+
+136
+00:04:45,510 --> 00:04:48,170
+różni się oczywiście pewnymi cechami oraz umiejętnościami, co
+
+137
+00:04:48,170 --> 00:04:50,530
+zwiększa tylko możliwości tworzenia rozmaitych build-ów.
+
+138
+00:04:50,730 --> 00:04:52,870
+To, czy właśnie wam powiedziałem, to raczej standardowe
+
+139
+00:04:52,870 --> 00:04:55,090
+elementy każdego Rogue-like'a, ale połączone z
+
+140
+00:04:55,090 --> 00:04:57,830
+tą dynamisją rozgrywką dają naprawdę masę frajdy i
+
+141
+00:04:57,830 --> 00:05:00,470
+wywołują to klasyczne uczucie zrobienia jeszcze jednego rana.
+
+142
+00:05:00,630 --> 00:05:02,190
+Na ten moment to wszystko wydaje się wam
+
+143
+00:05:02,190 --> 00:05:04,830
+pewnie niezbyt skomplikowane, ale na szczęście wcale tak
+
+144
+00:05:04,830 --> 00:05:05,250
+nie jest.
+
+145
+00:05:05,430 --> 00:05:07,410
+Robokwest jest całkiem złożonym rogue-like'iem, w
+
+146
+00:05:07,410 --> 00:05:09,250
+którym czeka na was spora ilość sekretów, na
+
+147
+00:05:09,250 --> 00:05:11,990
+przykład w postaci nowych lokacji czy odblokowywania dodatkowych
+
+148
+00:05:11,990 --> 00:05:12,450
+ulepszeń.
+
+149
+00:05:12,570 --> 00:05:14,390
+Nie będę wam za dużo spoilerował, ale już
+
+150
+00:05:14,390 --> 00:05:16,590
+w startowej lokacji mamy możliwość udania się w
+
+151
+00:05:16,590 --> 00:05:18,130
+trzy różne etapy, a w każdym z nich
+
+152
+00:05:18,130 --> 00:05:19,890
+będzie ciekawa na nas coś zupełnie innego.
+
+153
+00:05:20,270 --> 00:05:22,750
+Oczywiście wszystkie drogi ostatecznie i tak prowadzą do
+
+154
+00:05:22,750 --> 00:05:25,510
+finalnej miejscówki, ale zanim tam dotrzecie, to spędzicie
+
+155
+00:05:25,510 --> 00:05:26,710
+w grze naprawdę sporo czasu.
+
+156
+00:05:27,030 --> 00:05:28,530
+W wielu miejscach czekają na was sekrety i
+
+157
+00:05:28,530 --> 00:05:30,590
+znańczki, których na bank nie odklejecie za pierwszym
+
+158
+00:05:30,590 --> 00:05:32,370
+razem i warto się tutaj porównie za wszystkim
+
+159
+00:05:32,370 --> 00:05:33,010
+rozglądać.
+
+160
+00:05:33,090 --> 00:05:34,950
+Odkrywanie tego wszystkiego zostawiam już jednak w waszej
+
+161
+00:05:34,950 --> 00:05:37,190
+osobistej kwestii, chociaż wiem, że w fervorze strzelania
+
+162
+00:05:37,190 --> 00:05:38,610
+wcale nie jest to takie proste.
+
+163
+00:05:38,750 --> 00:05:41,170
+Dla fanów wyzwań przygotowane też oczywiście różne poziomy
+
+164
+00:05:41,170 --> 00:05:42,910
+trudności, a po przejściu gry po raz pierwszy
+
+165
+00:05:43,450 --> 00:05:44,430
+odblokowywują się kolejne.
+
+166
+00:05:44,510 --> 00:05:46,090
+Nie mogę też się nie napomknąć o jednej
+
+167
+00:05:46,090 --> 00:05:47,090
+bardzo ważnej sprawie.
+
+168
+00:05:47,370 --> 00:05:48,930
+Po premierowym wsparciu od twórców.
+
+169
+00:05:48,930 --> 00:05:51,010
+Gra ukazała się w pewnej wersji w listopadzie
+
+170
+00:05:51,010 --> 00:05:51,670
+zeszłego roku.
+
+171
+00:05:51,870 --> 00:05:54,410
+Twórcy od tego czasu regularnie wydają rozmyite patchy
+
+172
+00:05:54,410 --> 00:05:57,470
+usprawniające zabawe, a także zapowiedzieli plan na 2024
+
+173
+00:05:57,470 --> 00:05:59,430
+rok, w ramach którego do gry trafi wiele
+
+174
+00:05:59,430 --> 00:06:01,690
+nowości, w tym m.in. dotatkowe bronie.
+
+175
+00:06:01,790 --> 00:06:03,510
+Jest to rzecz, którą ja bardzo mocno doceniam,
+
+176
+00:06:03,590 --> 00:06:06,030
+bo RoboQuest, moi drodzy, kosztuje zawrotne 110 zł
+
+177
+00:06:06,030 --> 00:06:07,590
+na Steamie, a jest grą, w której można
+
+178
+00:06:07,590 --> 00:06:09,810
+spędzić wiele dobrych godzin, a do tego twórcy
+
+179
+00:06:09,810 --> 00:06:11,790
+stale pracują naddonowaniem do niej kolejnych rzeczy.
+
+180
+00:06:12,110 --> 00:06:14,690
+W czasach, gdy niektórzy deweloperzy niezbyt chętnie zbierają
+
+181
+00:06:14,690 --> 00:06:16,430
+się nawet do naprawiania swojej gier, no to
+
+182
+00:06:16,430 --> 00:06:18,710
+postawa twórców RoboQuesta jest, w moim zdaniem, godna
+
+183
+00:06:18,710 --> 00:06:19,310
+poszanowania.
+
+184
+00:06:19,530 --> 00:06:19,890
+No dobra.
+
+185
+00:06:20,230 --> 00:06:22,250
+Na wychwalałem tak tego RoboQuesta, ale być może
+
+186
+00:06:22,250 --> 00:06:24,090
+zastanawiacie się, czy znajdą się tutaj w ogóle
+
+187
+00:06:24,090 --> 00:06:24,830
+jakieś minusy.
+
+188
+00:06:25,050 --> 00:06:26,270
+W sumie to tak, ale nie są to
+
+189
+00:06:26,270 --> 00:06:28,550
+rzeczy, które przeszkadzały mi jakoś szczególnie mocno.
+
+190
+00:06:28,830 --> 00:06:31,130
+Znaki najbardziej dała mi się przede wszystkim mała
+
+191
+00:06:31,130 --> 00:06:32,230
+różnorodność przeciwników.
+
+192
+00:06:32,370 --> 00:06:34,530
+W sensie oni są różni, ale wszyscy są
+
+193
+00:06:34,530 --> 00:06:36,910
+robotami, przez co wyglądają bardzo podobnie i mogą
+
+194
+00:06:36,910 --> 00:06:38,970
+w późniejszych etapach mieszać się na ekranie.
+
+195
+00:06:39,150 --> 00:06:41,370
+Później w rozgrywce momentami potrafić też bardzo dużo
+
+196
+00:06:41,370 --> 00:06:43,630
+działać, więc bywały chwile, że po prostu gubiłem
+
+197
+00:06:43,630 --> 00:06:45,210
+się w tym, w którą stronę mam w
+
+198
+00:06:45,210 --> 00:06:45,970
+ogóle strzelać.
+
+199
+00:06:46,090 --> 00:06:47,510
+I nie jest to oczywiście coś strasznego, ale
+
+200
+00:06:47,510 --> 00:06:48,810
+myślę, że warto wspomnieć.
+
+201
+00:06:49,090 --> 00:06:50,510
+Jednym z minusów dla mnie są też dość
+
+202
+00:06:50,510 --> 00:06:53,530
+mało charakterystyczne postacie, które co prawda mają bardzo
+
+203
+00:06:53,530 --> 00:06:55,690
+różne umiejętności, ale jeśli chodzi o ich wygląd,
+
+204
+00:06:55,930 --> 00:06:57,250
+no to nie jestem nawet w stanie sobie
+
+205
+00:06:57,250 --> 00:06:58,230
+ich przypomnieć z głowy.
+
+206
+00:06:58,350 --> 00:06:59,610
+Są to, że jednak rzeczy tak drobne i
+
+207
+00:06:59,610 --> 00:07:01,750
+mało istotne, że praktycznie w żadnym stopniu nie
+
+208
+00:07:01,750 --> 00:07:02,690
+przeszkadzały mi w zabawę.
+
+209
+00:07:02,750 --> 00:07:04,610
+Wyszła mi z tego dość konkretna recenzja, ale
+
+210
+00:07:04,610 --> 00:07:06,130
+mam nadzieję, że przekaz jest jasny.
+
+211
+00:07:06,330 --> 00:07:08,630
+RoboQuesta świetna produkcja z zeszłego roku, o której
+
+212
+00:07:08,630 --> 00:07:10,210
+pewnie prawie większość z was w ogóle nie
+
+213
+00:07:10,210 --> 00:07:10,670
+słyszała.
+
+214
+00:07:10,670 --> 00:07:13,270
+Jeśli lubicie więc dynamiczne strzelanki i rogue leki,
+
+215
+00:07:13,470 --> 00:07:14,870
+a akurat na początek roku nie macie w
+
+216
+00:07:14,870 --> 00:07:16,470
+co grać, no to gorąco ją polecam.
+
+217
+00:07:16,730 --> 00:07:18,950
+W zalewie zeszło rośnych premiery przeszłona bez echa,
+
+218
+00:07:19,210 --> 00:07:20,870
+ale cieszę się, że los sprawił, że trafiłem
+
+219
+00:07:20,870 --> 00:07:21,750
+właśnie na RoboQuesta.
+
+220
+00:07:22,010 --> 00:07:23,790
+Dodatkowo cena, jak dadzicie się z standardy, jest
+
+221
+00:07:23,790 --> 00:07:26,290
+bardzo przystępna, a w samej grze spędzicie przynajmniej
+
+222
+00:07:26,290 --> 00:07:27,490
+dobrych kilkadziesiąt godzin.
+
+223
+00:07:27,790 --> 00:07:29,430
+A no i dodam, że RoboQuest powinien wciąż
+
+224
+00:07:29,430 --> 00:07:30,510
+być dostępny w Game Passie.
+
+225
+00:07:30,610 --> 00:07:32,490
+Dawajcie śmiało znać w komentarzach, czy mój materiał
+
+226
+00:07:32,490 --> 00:07:34,190
+przekonał was za sprawdzenie na tej gry i
+
+227
+00:07:34,190 --> 00:07:35,230
+do usłyszenia już niebawem.
