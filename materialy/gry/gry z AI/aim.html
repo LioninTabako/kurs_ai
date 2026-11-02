@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIMLAB PRO</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg:#080b12;
+  --panel:#101621;
+  --panel2:#151e2b;
+  --accent:#a3ff3f;
+  --text:#edf2f8;
+  --muted:#778397;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,sans-serif;
+  min-height:100vh;
+}
+button{font:inherit;cursor:pointer}
+.app{display:flex;min-height:100vh}
+.sidebar{
+  width:235px;background:#0c111a;
+  border-right:1px solid #1d2735;
+  padding:28px 18px;flex-shrink:0;
+}
+.logo{font-size:22px;font-weight:900;letter-spacing:-1px;margin-bottom:45px}
+.logo span{color:var(--accent)}
+.section-label{
+  color:var(--muted);font-size:10px;
+  font-weight:800;letter-spacing:2px;
+  margin:25px 0 12px 10px;
+}
+.nav{
+  width:100%;padding:13px 12px;border:0;
+  background:transparent;color:#8793a5;
+  text-align:left;border-radius:8px;
+  margin-bottom:5px;font-size:13px;
+}
+.nav.active,.nav:hover{background:#192331;color:var(--accent)}
+.main{flex:1;min-width:0;padding:30px 35px}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:35px}
+.topbar h1{font-size:23px;font-weight:800}
+.status{font-size:11px;color:var(--accent);background:#1b2b16;padding:9px 13px;border-radius:20px}
+.welcome{margin-bottom:25px}
+.welcome h2{font-size:27px;font-weight:800;margin-bottom:8px}
+.welcome p{font-size:13px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:25px}
+.stat{
+  background:var(--panel);border:1px solid #202b3a;
+  border-radius:11px;padding:18px;
+}
+.stat small{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:1px}
+.stat h3{font-size:27px;margin-top:10px}
+.stat h3 span{font-size:12px;color:var(--accent)}
+.content{display:grid;grid-template-columns:1fr 290px;gap:18px}
+.card{
+  background:var(--panel);border:1px solid #202b3a;
+  border-radius:12px;padding:20px;
+}
+.card-title{font-size:14px;font-weight:800;margin-bottom:17px}
+.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mode{
+  background:var(--panel2);border:1px solid #263345;
+  color:var(--text);border-radius:9px;padding:15px 10px;
+  text-align:left;transition:.2s;
+}
+.mode.selected{border-color:var(--accent);background:#1b2a19}
+.mode strong{display:block;font-size:13px;margin-bottom:7px}
+.mode small{font-size:10px;color:var(--muted)}
+.settings{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+select{
+  background:var(--panel2);color:white;
+  border:1px solid #2a3749;padding:11px;
+  border-radius:7px;outline:none;
+}
+.primary{
+  background:var(--accent);color:#10150b;
+  border:0;border-radius:7px;padding:12px 22px;
+  font-weight:900;font-size:12px;
+}
+.primary:hover{filter:brightness(1.1)}
+.secondary{
+  background:#222d3c;color:white;
+  border:1px solid #334256;padding:11px 17px;
+  border-radius:7px;font-size:12px;
+}
+.history-item{
+  display:flex;justify-content:space-between;
+  padding:13px 0;border-bottom:1px solid #202b3a;
+  font-size:12px;
+}
+.history-item span:last-child{color:var(--accent);font-weight:800}
+#gameScreen{
+  display:none;position:fixed;inset:0;
+  background:#080b12;z-index:10;
+}
+.game-top{
+  height:75px;display:flex;align-items:center;
+  justify-content:space-between;padding:0 25px;
+  background:#101621;border-bottom:1px solid #273243;
+}
+.game-stats{display:flex;gap:30px}
+.game-stat small{display:block;color:var(--muted);font-size:9px;letter-spacing:1px}
+.game-stat strong{font-size:20px}
+#arena{
+  height:calc(100vh - 75px);position:relative;
+  overflow:hidden;background-color:#0a101a;
+  background-image:radial-gradient(#273445 1px,transparent 1px);
+  background-size:24px 24px;
+  cursor:crosshair;touch-action:manipulation;
+}
+.target{
+  position:absolute;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#fff 0%,#c7ff83 12%,#8dff2e 40%,#51a900 75%);
+  border:3px solid #baff77;
+  box-shadow:0 0 20px #8cff4466,inset 0 0 8px white;
+  transform:translate(-50%,-50%);
+  animation:pop .12s ease-out;
+}
+@keyframes pop{from{transform:translate(-50%,-50%) scale(.3)}to{transform:translate(-50%,-50%) scale(1)}}
+#countdown{
+  position:absolute;inset:0;display:flex;align-items:center;
+  justify-content:center;background:#080b12dd;
+  font-size:65px;font-weight:900;z-index:3;
+}
+#pauseScreen{
+  display:none;position:absolute;inset:0;
+  background:#080b12cc;z-index:4;
+  align-items:center;justify-content:center;flex-direction:column;gap:15px;
+}
+#pauseScreen h2{font-size:35px}
+#resultScreen{
+  display:none;position:fixed;inset:0;
+  background:#080b12f5;z-index:20;
+  align-items:center;justify-content:center;
+}
+.result{
+  background:var(--panel);border:1px solid #2b394c;
+  padding:35px;border-radius:15px;width:min(450px,90%);
+  text-align:center;
+}
+.result h2{font-size:27px;margin-bottom:7px}
+.result-score{font-size:55px;font-weight:900;color:var(--accent);margin:15px}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0}
+.result-box{background:var(--panel2);padding:15px;border-radius:8px}
+.result-box small{color:var(--muted);font-size:10px}
+.result-box strong{display:block;margin-top:7px;font-size:21px}
+@media(max-width:950px){
+  .content{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:650px){
+  .sidebar{display:none}
+  .main{padding:20px 14px}
+  .modes{grid-template-columns:1fr}
+  .game-stats{gap:12px}
+  .game-stat strong{font-size:15px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="logo">AIM<span>LAB</span> PRO.</div>
+  <div class="section-label">MENU</div>
+  <button class="nav active">◈ Dashboard</button>
+  <button class="nav" onclick="document.getElementById('training').scrollIntoView()">◎ Training</button>
+  <button class="nav" onclick="showRecords()">▤ Records</button>
+  <div class="section-label">INFORMATION</div>
+  <button class="nav" onclick="alert('AimLab PRO — browser aim trainer.')">ⓘ About</button>
+  <div style="margin-top:65px;color:#596679;font-size:10px;line-height:2">
+    AIMLAB PRO v1.0<br>TRAIN YOUR AIM.
+  </div>
+</aside>
+
+<main class="main">
+  <header class="topbar">
+    <h1>Dashboard</h1>
+    <div class="status">● SYSTEM ONLINE</div>
+  </header>
+
+  <section class="welcome">
+    <h2>Welcome to your training.</h2>
+    <p>Improve your precision, speed and reaction time.</p>
+  </section>
+
+  <section class="stats">
+    <div class="stat"><small>PERSONAL BEST</small><h3 id="best">0</h3></div>
+    <div class="stat"><small>TOTAL HITS</small><h3 id="totalHits">0</h3></div>
+    <div class="stat"><small>GAMES PLAYED</small><h3 id="games">0</h3></div>
+    <div class="stat"><small>LAST ACCURACY</small><h3 id="lastAccuracy">0<span>%</span></h3></div>
+  </section>
+
+  <section class="content" id="training">
+    <div class="card">
+      <div class="card-title">SELECT TRAINING MODE</div>
+      <div class="modes">
+        <button class="mode selected" data-mode="grid">
+          <strong>◉ GRIDSHOT</strong>
+          <small>Hit random targets</small>
+        </button>
+        <button class="mode" data-mode="flick">
+          <strong>✣ FLICK</strong>
+          <small>Fast target switching</small>
+        </button>
+        <button class="mode" data-mode="tracking">
+          <strong>◎ TRACKING</strong>
+          <small>Follow moving targets</small>
+        </button>
+      </div>
+      <div class="settings">
+        <select id="duration">
+          <option value="30">30 Seconds</option>
+          <option value="60">60 Seconds</option>
+          <option value="90">90 Seconds</option>
+        </select>
+        <select id="difficulty">
+          <option value="50">Easy</option>
+          <option value="35" selected>Normal</option>
+          <option value="23">Hard</option>
+          <option value="15">Extreme</option>
+        </select>
+        <button class="primary" onclick="startGame()">START TRAINING →</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">RECENT PERFORMANCE</div>
+      <div id="history">
+        <p style="font-size:12px;color:var(--muted)">No training sessions yet.</p>
+      </div>
+    </div>
+  </section>
+</main>
+</div>
+
+<div id="gameScreen">
+  <div class="game-top">
+    <button class="secondary" onclick="endGame()">✕ EXIT</button>
+    <div class="game-stats">
+      <div class="game-stat"><small>SCORE</small><strong id="score">0</strong></div>
+      <div class="game-stat"><small>TIME</small><strong id="time">30</strong></div>
+      <div class="game-stat"><small>ACCURACY</small><strong id="accuracy">100%</strong></div>
+      <div class="game-stat"><small>HITS</small><strong id="hits">0</strong></div>
+    </div>
+    <button class="secondary" onclick="togglePause()">Ⅱ PAUSE</button>
+  </div>
+  <div id="arena">
+    <div id="countdown">3</div>
+    <div id="pauseScreen">
+      <h2>PAUSED</h2>
+      <button class="primary" onclick="togglePause()">RESUME</button>
+      <button class="secondary" onclick="endGame()">QUIT</button>
+    </div>
+  </div>
+</div>
+
+<div id="resultScreen">
+  <div class="result">
+    <h2>SESSION COMPLETE</h2>
+    <p style="color:var(--muted);font-size:12px">Your training results</p>
+    <div class="result-score" id="finalScore">0</div>
+    <div style="font-size:10px;color:var(--muted)">TOTAL SCORE</div>
+    <div class="result-grid">
+      <div class="result-box"><small>ACCURACY</small><strong id="finalAccuracy">0%</strong></div>
+      <div class="result-box"><small>TARGETS HIT</small><strong id="finalHits">0</strong></div>
+      <div class="result-box"><small>AVG REACTION</small><strong id="finalReaction">0ms</strong></div>
+      <div class="result-box"><small>MISSES</small><strong id="finalMisses">0</strong></div>
+    </div>
+    <button class="primary" onclick="closeResults()">BACK TO DASHBOARD</button>
+    <button class="secondary" style="margin-left:5px" onclick="startGame()">PLAY AGAIN</button>
+  </div>
+</div>
+
+<script>
+let mode="grid";
+let score=0,hits=0,misses=0;
+let remaining=30;
+let duration=30;
+let timer=null,spawnTimer=null;
+let running=false,paused=false;
+let target=null,targetTime=0,reactions=[];
+let trackingX=0,trackingY=0,trackingVX=0,trackingVY=0;
+let animation=null;
+
+const arena=document.getElementById("arena");
+
+document.querySelectorAll(".mode").forEach(btn=>{
+  btn.onclick=()=>{
+    document.querySelectorAll(".mode").forEach(b=>b.classList.remove("selected"));
+    btn.classList.add("selected");
+    mode=btn.dataset.mode;
+  };
+});
+
+function loadStats(){
+  let s=JSON.parse(localStorage.getItem("aimlabStats")||'{"best":0,"hits":0,"games":0,"last":0,"history":[]}');
+  document.getElementById("best").textContent=s.best;
+  document.getElementById("totalHits").textContent=s.hits;
+  document.getElementById("games").textContent=s.games;
+  document.getElementById("lastAccuracy").innerHTML=s.last+'<span>%</span>';
+  renderHistory(s);
+}
+function renderHistory(s){
+  let h=document.getElementById("history");
+  h.innerHTML=s.history.length?s.history.slice(0,5).map(x=>
+    `<div class="history-item"><span>${x.mode}</span><span>${x.score} pts</span></div>`
+  ).join(""):'<p style="font-size:12px;color:var(--muted)">No training sessions yet.</p>';
+}
+function showRecords(){
+  let s=JSON.parse(localStorage.getItem("aimlabStats")||'{"history":[]}');
+  alert("Recent records:\n"+(s.history.map(x=>x.mode+" — "+x.score+" points").join("\n")||"No records yet."));
+}
+function startGame(){
+  clearInterval(timer);clearTimeout(spawnTimer);cancelAnimationFrame(animation);
+  document.getElementById("resultScreen").style.display="none";
+  document.getElementById("gameScreen").style.display="block";
+  document.getElementById("pauseScreen").style.display="none";
+  arena.querySelectorAll(".target").forEach(t=>t.remove());
+  score=0;hits=0;misses=0;reactions=[];
+  duration=Number(document.getElementById("duration").value);
+  remaining=duration;
+  running=false;paused=false;
+  updateHUD();
+  let count=3;
+  const cd=document.getElementById("countdown");
+  cd.style.display="flex";cd.textContent=count;
+  let cdTimer=setInterval(()=>{
+    count--;
+    if(count>0)cd.textContent=count;
+    else{
+      clearInterval(cdTimer);
+      cd.style.display="none";
+      running=true;
+      beginRound();
+    }
+  },700);
+}
+function beginRound(){
+  if(!running||paused)return;
+  if(mode==="tracking")startTracking();
+  else spawnTarget();
+  timer=setInterval(()=>{
+    if(!running||paused)return;
+    remaining--;
+    updateHUD();
+    if(remaining<=0)finishGame();
+  },1000);
+}
+function spawnTarget(){
+  if(!running||paused)return;
+  if(target)target.remove();
+  let size=Number(document.getElementById("difficulty").value);
+  if(mode==="flick")size=Math.max(12,size-9);
+  target=document.createElement("div");
+  target.className="target";
+  target.style.width=size+"px";
+  target.style.height=size+"px";
+  let bounds=arena.getBoundingClientRect();
+  let x=35+Math.random()*(bounds.width-70);
+  let y=35+Math.random()*(bounds.height-70);
+  target.style.left=x+"px";target.style.top=y+"px";
+  targetTime=performance.now();
+  arena.appendChild(target);
+  target.onclick=(e)=>{
+    e.stopPropagation();
+    if(!running||paused)return;
+    let reaction=performance.now()-targetTime;
+    reactions.push(reaction);
+    hits++;
+    score+=Math.round(100+Math.max(0,500-reaction)/5);
+    updateHUD();
+    spawnTarget();
+  };
+}
+function startTracking(){
+  let size=Number(document.getElementById("difficulty").value);
+  trackingX=arena.clientWidth*.3;
+  trackingY=arena.clientHeight*.4;
+  trackingVX=3;trackingVY=2;
+  target=document.createElement("div");
+  target.className="target";
+  target.style.width=size+"px";
+  target.style.height=size+"px";
+  arena.appendChild(target);
+  let last=performance.now();
+  function move(now){
+    if(!running||paused)return;
+    let dt=Math.min((now-last)/16,2);last=now;
+    trackingX+=trackingVX*dt;
+    trackingY+=trackingVY*dt;
+    if(trackingX<size||trackingX>arena.clientWidth-size)trackingVX*=-1;
+    if(trackingY<size||trackingY>arena.clientHeight-size)trackingVY*=-1;
+    target.style.left=trackingX+"px";
+    target.style.top=trackingY+"px";
+    animation=requestAnimationFrame(move);
+  }
+  animation=requestAnimationFrame(move);
+}
+function updateHUD(){
+  document.getElementById("score").textContent=score;
+  document.getElementById("time").textContent=remaining;
+  document.getElementById("hits").textContent=hits;
+  let accuracy=hits+misses?Math.round(hits/(hits+misses)*100):100;
+  document.getElementById("accuracy").textContent=accuracy+"%";
+}
+arena.addEventListener("click",e=>{
+  if(!running||paused)return;
+  if(e.target===arena||e.target.id==="arena"){
+    misses++;
+    updateHUD();
+  }
+});
+function togglePause(){
+  if(!running)return;
+  paused=!paused;
+  document.getElementById("pauseScreen").style.display=paused?"flex":"none";
+  if(paused){
+    clearInterval(timer);
+    clearTimeout(spawnTimer);
+    cancelAnimationFrame(animation);
+  }else{
+    if(mode==="tracking")startTracking();
+    else if(!target||!target.isConnected)spawnTarget();
+    timer=setInterval(()=>{
+      if(!running||paused)return;
+      remaining--;updateHUD();
+      if(remaining<=0)finishGame();
+    },1000);
+  }
+}
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"&&document.getElementById("gameScreen").style.display==="block")togglePause();
+});
+function finishGame(){
+  running=false;paused=false;
+  clearInterval(timer);clearTimeout(spawnTimer);cancelAnimationFrame(animation);
+  if(target){target.remove();target=null;}
+  document.getElementById("gameScreen").style.display="none";
+  let accuracy=hits+misses?Math.round(hits/(hits+misses)*100):0;
+  let avg=reactions.length?Math.round(reactions.reduce((a,b)=>a+b,0)/reactions.length):0;
+  document.getElementById("finalScore").textContent=score;
+  document.getElementById("finalAccuracy").textContent=accuracy+"%";
+  document.getElementById("finalHits").textContent=hits;
+  document.getElementById("finalReaction").textContent=avg+"ms";
+  document.getElementById("finalMisses").textContent=misses;
+  let s=JSON.parse(localStorage.getItem("aimlabStats")||'{"best":0,"hits":0,"games":0,"last":0,"history":[]}');
+  s.best=Math.max(s.best,score);
+  s.hits+=hits;s.games++;s.last=accuracy;
+  s.history.unshift({mode:mode.toUpperCase(),score});
+  s.history=s.history.slice(0,10);
+  localStorage.setItem("aimlabStats",JSON.stringify(s));
+  document.getElementById("resultScreen").style.display="flex";
+  loadStats();
+}
+function endGame(){
+  if(!running)return;
+  finishGame();
+}
+function closeResults(){
+  document.getElementById("resultScreen").style.display="none";
+}
+loadStats();
+</script>
+</body>
+</html>

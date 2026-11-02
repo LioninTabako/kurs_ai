@@ -1,0 +1,841 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VOIDBOUND RPG</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  --gold:#d9b66d;
+  --purple:#a56bff;
+  --bg:#090b12;
+  --panel:#121722;
+}
+*{box-sizing:border-box}
+body{
+ margin:0;background:var(--bg);color:#eee;
+ font-family:Inter,sans-serif;overflow:hidden;
+}
+#game{width:100vw;height:100vh;position:relative;background:#090d12}
+canvas{display:block;width:100%;height:100%;image-rendering:pixelated}
+.hud{position:absolute;inset:0;pointer-events:none}
+.top{
+ position:absolute;top:18px;left:20px;right:20px;
+ display:flex;justify-content:space-between;align-items:flex-start;
+}
+.brand{
+ font-family:Cinzel,serif;font-weight:900;font-size:22px;
+ color:var(--gold);letter-spacing:3px;
+ text-shadow:0 0 20px #d9b66d55;
+}
+.level{
+ background:#101722ed;border:1px solid #9c7a42;
+ padding:10px 16px;border-radius:5px;font-size:12px;
+}
+.player-bars{width:260px;margin-top:12px}
+.bar{
+ height:12px;background:#242630;border-radius:3px;
+ overflow:hidden;margin:6px 0;border:1px solid #ffffff18;
+}
+.fill{height:100%;transition:width .2s}
+.hp{background:linear-gradient(90deg,#9d2437,#f04458)}
+.mp{background:linear-gradient(90deg,#3157be,#65a9ff)}
+.xp{background:linear-gradient(90deg,#987027,#f5d174)}
+.bar-label{font-size:10px;color:#c6c9d1;display:flex;justify-content:space-between}
+.right-panel{
+ position:absolute;right:20px;top:90px;width:180px;
+ background:#10151de8;border:1px solid #4a4436;
+ padding:14px;border-radius:5px;
+}
+.panel-title{
+ font-family:Cinzel,serif;color:var(--gold);
+ font-size:13px;margin-bottom:12px;
+}
+.stat{display:flex;justify-content:space-between;font-size:11px;color:#adb3c0;margin:9px 0}
+.stat b{color:white}
+.bottom{
+ position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
+ display:flex;gap:8px;align-items:center;
+ pointer-events:auto;
+}
+.slot{
+ width:53px;height:53px;background:#111722ed;
+ border:1px solid #77705c;border-radius:5px;
+ display:flex;align-items:center;justify-content:center;
+ font-size:23px;position:relative;cursor:pointer;
+}
+.slot:hover{border-color:var(--gold);background:#242333}
+.slot small{position:absolute;bottom:3px;right:5px;font-size:9px;color:#aaa}
+.slot.active{border:2px solid var(--gold)}
+.key{
+ position:absolute;top:3px;left:5px;font-size:9px;color:var(--gold)
+}
+.action{
+ pointer-events:auto;background:#151c29ed;
+ border:1px solid #756341;color:#e8d4a7;
+ padding:10px 15px;border-radius:4px;cursor:pointer;
+ font-size:11px;margin:3px;
+}
+.action:hover{background:#303044}
+#message{
+ position:absolute;top:25%;left:50%;transform:translateX(-50%);
+ color:#f3d68d;font-family:Cinzel,serif;font-size:17px;
+ text-shadow:0 2px 10px black;white-space:nowrap;
+ opacity:0;transition:opacity .3s;
+}
+#overlay{
+ display:none;position:absolute;inset:0;background:#05070bdc;
+ align-items:center;justify-content:center;pointer-events:auto;
+}
+.window{
+ width:min(550px,92vw);max-height:85vh;overflow:auto;
+ background:#111722;border:1px solid #8b7145;
+ padding:25px;border-radius:6px;box-shadow:0 0 70px #000;
+}
+.window h2{
+ font-family:Cinzel,serif;color:var(--gold);
+ text-align:center;letter-spacing:2px;
+}
+.item{
+ padding:13px;margin:8px 0;background:#1b2330;
+ border:1px solid #303a4a;display:flex;
+ justify-content:space-between;align-items:center;font-size:12px;
+}
+#minimap{
+ position:absolute;left:20px;bottom:20px;
+ width:145px;height:115px;border:1px solid #9a8155;
+ background:#10151d;
+}
+#toast{
+ position:absolute;bottom:100px;left:50%;
+ transform:translateX(-50%);
+ color:#e8d2a2;background:#151a23ed;
+ border:1px solid #806b44;padding:12px 20px;
+ font-size:12px;border-radius:4px;opacity:0;
+ transition:opacity .3s;pointer-events:none;
+}
+#start{
+ position:absolute;inset:0;background:
+ linear-gradient(#05070ba8,#05070be8),
+ radial-gradient(ellipse at center,#263047,#080a10);
+ display:flex;flex-direction:column;
+ justify-content:center;align-items:center;
+ text-align:center;
+}
+#start h1{
+ font:900 clamp(35px,8vw,75px) Cinzel,serif;
+ color:var(--gold);letter-spacing:7px;
+ text-shadow:0 0 40px #b8893e88;margin:0;
+}
+#start p{color:#a8acb8;font-size:13px;margin:20px}
+#start button{
+ padding:15px 45px;background:#a9864d;
+ color:#100d08;border:0;font-weight:900;
+ letter-spacing:3px;cursor:pointer;font-size:13px;
+}
+#start button:hover{background:#f1cb81}
+.controls{color:#929aaa;font-size:11px;line-height:2;margin-top:25px}
+@media(max-width:650px){
+ .right-panel{width:135px;right:8px;top:100px;padding:9px}
+ .player-bars{width:180px}
+ .brand{font-size:16px}
+ #minimap{width:100px;height:85px;left:8px;bottom:8px}
+ .bottom{bottom:10px;gap:4px}
+ .slot{width:42px;height:45px}
+}
+</style>
+</head>
+<body>
+<div id="game">
+<canvas id="world"></canvas>
+
+<div class="hud">
+ <div class="top">
+  <div>
+   <div class="brand">VOIDBOUND</div>
+   <div class="player-bars">
+    <div class="bar-label"><span>HEALTH</span><span id="hpText">100/100</span></div>
+    <div class="bar"><div class="fill hp" id="hpBar" style="width:100%"></div></div>
+    <div class="bar-label"><span>MANA</span><span id="mpText">50/50</span></div>
+    <div class="bar"><div class="fill mp" id="mpBar" style="width:100%"></div></div>
+    <div class="bar-label"><span>EXPERIENCE</span><span id="xpText">0/100</span></div>
+    <div class="bar"><div class="fill xp" id="xpBar" style="width:0%"></div></div>
+   </div>
+  </div>
+  <div class="level">
+   <div style="color:var(--gold);font-family:Cinzel">CHARACTER</div>
+   <div style="margin-top:5px">LEVEL <b id="level">1</b></div>
+   <div style="font-size:10px;color:#aaa;margin-top:4px" id="gold">0 GOLD</div>
+  </div>
+ </div>
+
+ <div class="right-panel">
+  <div class="panel-title">CHARACTER</div>
+  <div class="stat">Attack <b id="attack">15</b></div>
+  <div class="stat">Defense <b id="defense">3</b></div>
+  <div class="stat">Kills <b id="kills">0</b></div>
+  <div class="stat">Potions <b id="potions">3</b></div>
+  <hr style="border-color:#303746">
+  <button class="action" onclick="openMenu('inventory')">INVENTORY [I]</button>
+  <button class="action" onclick="openMenu('quests')">QUESTS [J]</button>
+  <button class="action" onclick="openMenu('stats')">STATUS [C]</button>
+ </div>
+
+ <canvas id="minimap"></canvas>
+ <div id="message"></div>
+ <div id="toast"></div>
+ <div class="bottom">
+  <div class="slot active" onclick="attack()" title="Attack">
+   <span class="key">LMB</span>⚔️
+  </div>
+  <div class="slot" onclick="castSpell()" title="Magic">
+   <span class="key">Q</span>🔥
+  </div>
+  <div class="slot" onclick="usePotion()" title="Potion">
+   <span class="key">E</span>🧪
+  </div>
+  <div class="slot" onclick="openMenu('inventory')">
+   <span class="key">I</span>🎒
+  </div>
+ </div>
+</div>
+
+<div id="overlay">
+ <div class="window">
+  <h2 id="windowTitle">INVENTORY</h2>
+  <div id="windowContent"></div>
+  <button class="action" onclick="closeMenu()" style="width:100%;margin-top:15px">CLOSE [ESC]</button>
+ </div>
+</div>
+
+<div id="start">
+ <h1>VOIDBOUND</h1>
+ <p>THE KINGDOM HAS FALLEN. YOUR JOURNEY BEGINS.</p>
+ <button onclick="startGame()">ENTER THE WORLD</button>
+ <div class="controls">
+  WASD – MOVE &nbsp; | &nbsp; LMB – ATTACK &nbsp; | &nbsp; Q – SPELL<br>
+  E – POTION &nbsp; | &nbsp; I – INVENTORY &nbsp; | &nbsp; J – QUESTS
+ </div>
+</div>
+</div>
+
+<script>
+const canvas=document.getElementById("world");
+const ctx=canvas.getContext("2d");
+const mini=document.getElementById("minimap");
+const mctx=mini.getContext("2d");
+
+let W=0,H=0;
+function resize(){
+ W=canvas.width=window.innerWidth;
+ H=canvas.height=window.innerHeight;
+ mini.width=145;mini.height=115;
+}
+window.addEventListener("resize",resize);
+resize();
+
+const TILE=48;
+const MAP=65;
+let camera={x:0,y:0};
+let started=false,menuOpen=false,dead=false;
+let keys={};
+let enemies=[],particles=[],loot=[];
+let gameTime=0,last=0,spawnClock=0;
+let messageTimer=0;
+
+const player={
+ x:MAP*TILE/2,y:MAP*TILE/2,
+ hp:100,maxHp:100,mp:50,maxMp:50,
+ xp:0,nextXp:100,level:1,
+ gold:0,attack:15,defense:3,
+ speed:210,potions:3,kills:0,
+ invulnerable:0,attackCooldown:0,
+ spellCooldown:0,attackFlash:0,
+ weapon:"Rusty Sword",armor:"Traveler Clothes",
+ facing:0
+};
+
+const world=[];
+for(let y=0;y<MAP;y++){
+ world[y]=[];
+ for(let x=0;x<MAP;x++){
+  let r=Math.sin(x*12.9898+y*78.233)*43758.5453;
+  r-=Math.floor(r);
+  world[y][x]=r;
+ }
+}
+
+function terrain(x,y){
+ if(x<1||y<1||x>=MAP-1||y>=MAP-1)return 2;
+ let v=world[y][x];
+ if(v>.95)return 1;
+ if(v<.06)return 3;
+ return 0;
+}
+
+function random(min,max){return Math.random()*(max-min)+min}
+function distance(a,b){return Math.hypot(a.x-b.x,a.y-b.y)}
+
+function spawnEnemy(type="slime",x,y){
+ let types={
+  slime:{hp:35,damage:7,speed:65,xp:25,gold:random(3,9),color:"#8fe85a",size:17,name:"Slime"},
+  skeleton:{hp:65,damage:12,speed:90,xp:45,gold:random(8,15),color:"#ded7c4",size:18,name:"Skeleton"},
+  demon:{hp:150,damage:20,speed:75,xp:100,gold:random(20,40),color:"#d94d52",size:24,name:"Demon"}
+ };
+ let t=types[type];
+ enemies.push({
+  ...t,type,x,y,maxHp:t.hp,
+  cooldown:random(.2,1.2),hit:0,alive:true
+ });
+}
+
+function initWorld(){
+ enemies=[];loot=[];particles=[];
+ for(let i=0;i<32;i++){
+  let x=random(200,MAP*TILE-200);
+  let y=random(200,MAP*TILE-200);
+  if(Math.hypot(x-player.x,y-player.y)>300)
+   spawnEnemy(Math.random()>.7?"skeleton":"slime",x,y);
+ }
+ for(let i=0;i<6;i++){
+  let x=random(200,MAP*TILE-200);
+  let y=random(200,MAP*TILE-200);
+  if(Math.hypot(x-player.x,y-player.y)>500)
+   spawnEnemy("demon",x,y);
+ }
+}
+
+function startGame(){
+ document.getElementById("start").style.display="none";
+ started=true;
+ initWorld();
+ last=performance.now();
+ requestAnimationFrame(loop);
+ notify("Welcome to the Forgotten Lands.");
+}
+
+function notify(text){
+ const el=document.getElementById("toast");
+ el.textContent=text;el.style.opacity=1;
+ clearTimeout(messageTimer);
+ messageTimer=setTimeout(()=>el.style.opacity=0,2200);
+}
+
+function floatingText(x,y,text,color="#fff"){
+ particles.push({x,y,text,color,life:.8,max:.8});
+}
+
+function gainXP(value){
+ player.xp+=value;
+ while(player.xp>=player.nextXp){
+  player.xp-=player.nextXp;
+  player.level++;
+  player.nextXp=Math.floor(player.nextXp*1.4);
+  player.maxHp+=20;player.hp=player.maxHp;
+  player.maxMp+=10;player.mp=player.maxMp;
+  player.attack+=4;player.defense+=2;
+  notify("LEVEL UP! LEVEL "+player.level);
+  floatingText(player.x,player.y-40,"LEVEL UP!","#ffd77c");
+ }
+}
+
+function dropLoot(enemy){
+ let type=Math.random();
+ if(type<.35){
+  loot.push({x:enemy.x,y:enemy.y,type:"potion"});
+ }else if(type<.75){
+  loot.push({x:enemy.x,y:enemy.y,type:"gold",amount:Math.ceil(enemy.gold)});
+ }else{
+  loot.push({x:enemy.x,y:enemy.y,type:"gem"});
+ }
+}
+
+function killEnemy(e){
+ e.alive=false;
+ player.kills++;
+ gainXP(e.xp);
+ dropLoot(e);
+ floatingText(e.x,e.y-20,"+"+e.xp+" XP","#b6a0ff");
+}
+
+function attack(){
+ if(!started||menuOpen||dead||player.attackCooldown>0)return;
+ player.attackCooldown=.38;
+ player.attackFlash=.17;
+ let found=null,best=85;
+ for(const e of enemies){
+  if(!e.alive)continue;
+  let d=distance(player,e);
+  if(d<best){best=d;found=e}
+ }
+ if(found){
+  found.hp-=player.attack;
+  found.hit=.15;
+  floatingText(found.x,found.y-20,"-"+player.attack,"#ff9b83");
+  if(found.hp<=0)killEnemy(found);
+ }else{
+  let fx=player.x+Math.cos(player.facing)*55;
+  let fy=player.y+Math.sin(player.facing)*55;
+  particles.push({x:fx,y:fy,text:"✦",color:"#e5bd77",life:.2,max:.2});
+ }
+}
+
+function castSpell(){
+ if(!started||menuOpen||dead)return;
+ if(player.spellCooldown>0)return;
+ if(player.mp<15){notify("Not enough mana!");return}
+ player.mp-=15;
+ player.spellCooldown=2.2;
+ let count=0;
+ for(const e of enemies){
+  if(!e.alive)continue;
+  if(distance(player,e)<155){
+   e.hp-=player.attack*2;
+   e.hit=.2;
+   floatingText(e.x,e.y-25,"-"+player.attack*2,"#bd83ff");
+   count++;
+   if(e.hp<=0)killEnemy(e);
+  }
+ }
+ for(let i=0;i<22;i++){
+  let a=random(0,Math.PI*2);
+  let d=random(25,150);
+  particles.push({
+   x:player.x+Math.cos(a)*d,
+   y:player.y+Math.sin(a)*d,
+   text:"✦",color:"#a56bff",life:.7,max:.7
+  });
+ }
+ if(count===0)notify("Arcane energy released!");
+}
+
+function usePotion(){
+ if(!started||menuOpen||dead)return;
+ if(player.potions<=0){notify("No potions remaining!");return}
+ if(player.hp>=player.maxHp){notify("Health is already full.");return}
+ player.potions--;
+ player.hp=Math.min(player.maxHp,player.hp+55);
+ notify("Health potion used.");
+}
+
+function takeDamage(amount){
+ if(player.invulnerable>0)return;
+ player.hp-=Math.max(1,amount-player.defense);
+ player.invulnerable=.6;
+ floatingText(player.x,player.y-35,"DAMAGE!","#ff5555");
+ if(player.hp<=0){
+  player.hp=0;dead=true;
+  notify("You have fallen. Press R to respawn.");
+ }
+}
+
+function collectLoot(){
+ for(let i=loot.length-1;i>=0;i--){
+  let l=loot[i];
+  if(distance(player,l)<35){
+   if(l.type==="gold"){
+    player.gold+=l.amount;
+    notify("+"+l.amount+" gold");
+   }
+   if(l.type==="potion"){
+    player.potions++;
+    notify("Potion collected!");
+   }
+   if(l.type==="gem"){
+    player.gold+=20;
+    gainXP(15);
+    notify("Magic crystal collected!");
+   }
+   loot.splice(i,1);
+  }
+ }
+}
+
+function update(dt){
+ if(!started||menuOpen||dead)return;
+ gameTime+=dt;
+ player.attackCooldown=Math.max(0,player.attackCooldown-dt);
+ player.spellCooldown=Math.max(0,player.spellCooldown-dt);
+ player.attackFlash=Math.max(0,player.attackFlash-dt);
+ player.invulnerable=Math.max(0,player.invulnerable-dt);
+ player.mp=Math.min(player.maxMp,player.mp+3*dt);
+
+ let dx=0,dy=0;
+ if(keys.w||keys.ArrowUp)dy--;
+ if(keys.s||keys.ArrowDown)dy++;
+ if(keys.a||keys.ArrowLeft)dx--;
+ if(keys.d||keys.ArrowRight)dx++;
+ let len=Math.hypot(dx,dy);
+ if(len>0){
+  dx/=len;dy/=len;
+  player.facing=Math.atan2(dy,dx);
+ }
+ let nx=player.x+dx*player.speed*dt;
+ let ny=player.y+dy*player.speed*dt;
+ if(!blocked(nx,player.y))player.x=nx;
+ if(!blocked(player.x,ny))player.y=ny;
+
+ for(const e of enemies){
+  if(!e.alive)continue;
+  e.hit=Math.max(0,e.hit-dt);
+  e.cooldown-=dt;
+  let d=distance(player,e);
+  if(d>32&&d<430){
+   let vx=(player.x-e.x)/d;
+   let vy=(player.y-e.y)/d;
+   let ex=e.x+vx*e.speed*dt;
+   let ey=e.y+vy*e.speed*dt;
+   if(!blocked(ex,e.y))e.x=ex;
+   if(!blocked(e.x,ey))e.y=ey;
+  }
+  if(d<38&&e.cooldown<=0){
+   takeDamage(e.damage);
+   e.cooldown=1.1;
+  }
+ }
+ collectLoot();
+
+ spawnClock+=dt;
+ if(spawnClock>15&&enemies.filter(e=>e.alive).length<22){
+  spawnClock=0;
+  let a=random(0,Math.PI*2);
+  spawnEnemy("slime",
+   Math.max(100,Math.min(MAP*TILE-100,player.x+Math.cos(a)*550)),
+   Math.max(100,Math.min(MAP*TILE-100,player.y+Math.sin(a)*550))
+  );
+ }
+
+ for(let i=particles.length-1;i>=0;i--){
+  let p=particles[i];p.life-=dt;p.y-=25*dt;
+  if(p.life<=0)particles.splice(i,1);
+ }
+}
+
+function blocked(x,y){
+ let tx=Math.floor(x/TILE),ty=Math.floor(y/TILE);
+ return terrain(tx,ty)===2||terrain(tx,ty)===3;
+}
+
+function drawWorld(){
+ camera.x=player.x-W/2;
+ camera.y=player.y-H/2;
+ camera.x=Math.max(0,Math.min(MAP*TILE-W,camera.x));
+ camera.y=Math.max(0,Math.min(MAP*TILE-H,camera.y));
+
+ ctx.fillStyle="#111b18";
+ ctx.fillRect(0,0,W,H);
+ let sx=Math.floor(camera.x/TILE);
+ let sy=Math.floor(camera.y/TILE);
+ let ex=Math.ceil((camera.x+W)/TILE)+1;
+ let ey=Math.ceil((camera.y+H)/TILE)+1;
+
+ for(let y=sy;y<ey;y++){
+  for(let x=sx;x<ex;x++){
+   let t=terrain(x,y);
+   let px=x*TILE-camera.x;
+   let py=y*TILE-camera.y;
+   let variation=world[Math.max(0,Math.min(MAP-1,y))][Math.max(0,Math.min(MAP-1,x))];
+   ctx.fillStyle=t===2?"#252a2c":t===3?"#303c34":
+    variation>.5?"#1d3425":"#203929";
+   ctx.fillRect(px,py,TILE,TILE);
+   if(t===0){
+    ctx.fillStyle=variation>.5?"#29452f":"#263e2b";
+    ctx.fillRect(px+8,py+12,3,3);
+    if(variation>.88){
+     ctx.fillStyle="#a9b68b";
+     ctx.fillRect(px+30,py+32,3,3);
+    }
+   }
+   if(t===2){
+    ctx.fillStyle="#383e40";
+    ctx.fillRect(px+3,py+3,TILE-6,TILE-6);
+    ctx.fillStyle="#53595a";
+    ctx.fillRect(px+8,py+8,10,4);
+   }
+   if(t===3){
+    ctx.fillStyle="#536c4c";
+    ctx.fillRect(px+12,py+10,23,27);
+   }
+  }
+ }
+}
+
+function drawPlayer(){
+ let x=player.x-camera.x,y=player.y-camera.y;
+ ctx.save();
+ ctx.translate(x,y);
+ if(player.invulnerable>0&&Math.floor(gameTime*15)%2===0)ctx.globalAlpha=.4;
+
+ // Shadow
+ ctx.fillStyle="#0008";
+ ctx.beginPath();ctx.ellipse(0,13,15,7,0,0,Math.PI*2);ctx.fill();
+
+ // Cape
+ ctx.fillStyle="#63384c";
+ ctx.beginPath();ctx.moveTo(-11,-4);ctx.lineTo(-12,15);
+ ctx.lineTo(11,15);ctx.lineTo(10,-4);ctx.fill();
+
+ // Body
+ ctx.fillStyle="#64728b";
+ ctx.fillRect(-10,-10,20,22);
+ ctx.fillStyle="#a9b4c7";
+ ctx.fillRect(-7,-13,14,9);
+
+ // Face
+ ctx.fillStyle="#dfb99a";
+ ctx.fillRect(-6,-17,12,11);
+ ctx.fillStyle="#242632";
+ ctx.fillRect(-5,-20,11,5);
+ ctx.fillStyle="#171d29";
+ ctx.fillRect(-4,-13,2,2);ctx.fillRect(3,-13,2,2);
+
+ // Weapon
+ ctx.rotate(player.facing);
+ ctx.fillStyle="#d5d9de";
+ ctx.fillRect(9,-3,21,4);
+ ctx.fillStyle="#967344";
+ ctx.fillRect(8,-6,3,10);
+ if(player.attackFlash>0){
+  ctx.strokeStyle="#e6c779";
+  ctx.lineWidth=4;
+  ctx.beginPath();ctx.arc(0,0,47,-.8,.8);ctx.stroke();
+ }
+ ctx.restore();
+}
+
+function drawEnemy(e){
+ let x=e.x-camera.x,y=e.y-camera.y;
+ ctx.save();ctx.translate(x,y);
+ ctx.fillStyle="#0008";
+ ctx.beginPath();ctx.ellipse(0,13,e.size,7,0,0,Math.PI*2);ctx.fill();
+ if(e.hit>0)ctx.globalAlpha=.55;
+ if(e.type==="slime"){
+  ctx.fillStyle=e.color;
+  ctx.beginPath();ctx.ellipse(0,0,17,13,0,Math.PI,0);ctx.lineTo(17,0);ctx.fill();
+  ctx.fillStyle="#14221b";
+  ctx.fillRect(-7,-6,3,3);ctx.fillRect(5,-6,3,3);
+ }else if(e.type==="skeleton"){
+  ctx.fillStyle="#d5ccb8";
+  ctx.fillRect(-10,-12,20,23);
+  ctx.fillStyle="#27252a";
+  ctx.fillRect(-7,-7,4,4);ctx.fillRect(4,-7,4,4);
+  ctx.fillStyle="#aaa08e";
+  ctx.fillRect(-7,4,14,4);
+ }else{
+  ctx.fillStyle="#8d293a";
+  ctx.fillRect(-13,-12,26,28);
+  ctx.fillStyle="#f5a14c";
+  ctx.fillRect(-8,-8,4,4);ctx.fillRect(5,-8,4,4);
+  ctx.fillStyle="#4d1d31";
+  ctx.beginPath();ctx.moveTo(-12,-9);ctx.lineTo(-18,-24);ctx.lineTo(-5,-14);ctx.fill();
+  ctx.beginPath();ctx.moveTo(12,-9);ctx.lineTo(18,-24);ctx.lineTo(5,-14);ctx.fill();
+ }
+ ctx.restore();
+
+ if(e.hp<e.maxHp){
+  ctx.fillStyle="#27232b";
+  ctx.fillRect(x-17,y-27,34,4);
+  ctx.fillStyle="#d84953";
+  ctx.fillRect(x-17,y-27,34*Math.max(0,e.hp/e.maxHp),4);
+ }
+}
+
+function drawLoot(){
+ for(const l of loot){
+  let x=l.x-camera.x,y=l.y-camera.y;
+  ctx.fillStyle=l.type==="gold"?"#f5d477":l.type==="potion"?"#f05b7c":"#b78aff";
+  ctx.beginPath();ctx.arc(x,y,7+Math.sin(gameTime*4)*2,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle="#fff9";
+  ctx.fillRect(x-2,y-2,4,4);
+ }
+}
+
+function drawParticles(){
+ for(const p of particles){
+  ctx.globalAlpha=Math.max(0,p.life/p.max);
+  ctx.fillStyle=p.color;
+  ctx.font="bold 13px Inter";
+  ctx.textAlign="center";
+  ctx.fillText(p.text,p.x-camera.x,p.y-camera.y);
+ }
+ ctx.globalAlpha=1;
+}
+
+function drawMini(){
+ let w=145,h=115;
+ mctx.fillStyle="#101b17";mctx.fillRect(0,0,w,h);
+ let scale=w/(MAP*TILE);
+ for(let y=0;y<MAP;y+=2){
+  for(let x=0;x<MAP;x+=2){
+   let t=terrain(x,y);
+   mctx.fillStyle=t===2?"#626568":t===3?"#687d52":"#335c3d";
+   mctx.fillRect(x*TILE*scale,y*TILE*scale,2,2);
+  }
+ }
+ for(const e of enemies){
+  if(!e.alive)continue;
+  mctx.fillStyle=e.type==="demon"?"#f44":"#dbad5c";
+  mctx.fillRect(e.x*scale-1,e.y*scale-1,3,3);
+ }
+ mctx.fillStyle="#fff";
+ mctx.beginPath();
+ mctx.arc(player.x*scale,player.y*scale,3,0,Math.PI*2);
+ mctx.fill();
+}
+
+function updateHUD(){
+ const hp=player.hp/player.maxHp*100;
+ const mp=player.mp/player.maxMp*100;
+ const xp=player.xp/player.nextXp*100;
+ document.getElementById("hpBar").style.width=hp+"%";
+ document.getElementById("mpBar").style.width=mp+"%";
+ document.getElementById("xpBar").style.width=xp+"%";
+ document.getElementById("hpText").textContent=Math.ceil(player.hp)+"/"+player.maxHp;
+ document.getElementById("mpText").textContent=Math.floor(player.mp)+"/"+player.maxMp;
+ document.getElementById("xpText").textContent=player.xp+"/"+player.nextXp;
+ document.getElementById("level").textContent=player.level;
+ document.getElementById("gold").textContent=player.gold+" GOLD";
+ document.getElementById("attack").textContent=player.attack;
+ document.getElementById("defense").textContent=player.defense;
+ document.getElementById("kills").textContent=player.kills;
+ document.getElementById("potions").textContent=player.potions;
+}
+
+function draw(){
+ drawWorld();
+ for(const l of loot)drawLootItem(l);
+ for(const e of enemies)if(e.alive)drawEnemy(e);
+ drawPlayer();
+ drawParticles();
+ drawMini();
+ updateHUD();
+}
+
+function drawLootItem(l){
+ let x=l.x-camera.x,y=l.y-camera.y;
+ ctx.fillStyle=l.type==="gold"?"#f5d477":l.type==="potion"?"#f05b7c":"#b78aff";
+ ctx.shadowBlur=13;ctx.shadowColor=ctx.fillStyle;
+ ctx.beginPath();ctx.arc(x,y,7+Math.sin(gameTime*4)*2,0,Math.PI*2);ctx.fill();
+ ctx.shadowBlur=0;
+}
+
+function loop(now){
+ if(!started)return;
+ let dt=Math.min((now-last)/1000,.04);
+ last=now;
+ update(dt);
+ draw();
+ requestAnimationFrame(loop);
+}
+
+function openMenu(type){
+ if(!started||dead)return;
+ menuOpen=true;
+ let title=document.getElementById("windowTitle");
+ let content=document.getElementById("windowContent");
+ document.getElementById("overlay").style.display="flex";
+ if(type==="inventory"){
+  title.textContent="INVENTORY";
+  content.innerHTML=`
+   <div class="item"><span>⚔️ ${player.weapon}</span><b>+${player.attack-15} ATK</b></div>
+   <div class="item"><span>🛡️ ${player.armor}</span><b>+${player.defense} DEF</b></div>
+   <div class="item"><span>🧪 Health Potion</span><b>${player.potions}x</b></div>
+   <div class="item"><span>🪙 Gold</span><b>${player.gold}</b></div>
+   <div class="item"><span>💎 Magic Crystals</span><b>Collect them in the world</b></div>
+   <button class="action" onclick="buyPotion()">BUY POTION (30 GOLD)</button>
+   <button class="action" onclick="buySword()">BUY SWORD (100 GOLD)</button>`;
+ }
+ if(type==="quests"){
+  title.textContent="QUEST LOG";
+  content.innerHTML=`
+   <div class="item"><span>☠️ First Blood</span><b>${player.kills>=5?"COMPLETED":player.kills+"/5"}</b></div>
+   <p style="font-size:11px;color:#aaa;padding:8px">Defeat 5 enemies. Reward: 100 XP.</p>
+   <div class="item"><span>🌟 Rising Hero</span><b>${player.level>=3?"COMPLETED":player.level+"/3"}</b></div>
+   <p style="font-size:11px;color:#aaa;padding:8px">Reach level 3. Reward: 100 gold.</p>
+   <button class="action" onclick="claimQuest(0)">CLAIM FIRST BLOOD</button>
+   <button class="action" onclick="claimQuest(1)">CLAIM RISING HERO</button>`;
+ }
+ if(type==="stats"){
+  title.textContent="CHARACTER STATUS";
+  content.innerHTML=`
+   <div class="item"><span>Level</span><b>${player.level}</b></div>
+   <div class="item"><span>Health</span><b>${player.hp}/${player.maxHp}</b></div>
+   <div class="item"><span>Mana</span><b>${Math.floor(player.mp)}/${player.maxMp}</b></div>
+   <div class="item"><span>Attack</span><b>${player.attack}</b></div>
+   <div class="item"><span>Defense</span><b>${player.defense}</b></div>
+   <div class="item"><span>Enemies defeated</span><b>${player.kills}</b></div>`;
+ }
+}
+
+let claimed=[false,false];
+function claimQuest(i){
+ if(claimed[i]){notify("Reward already claimed.");return}
+ if(i===0&&player.kills>=5){
+  player.gold+=50;gainXP(100);claimed[i]=true;
+  notify("Quest completed!");
+ }else if(i===1&&player.level>=3){
+  player.gold+=100;claimed[i]=true;
+  notify("Quest completed!");
+ }else{
+  notify("Quest requirements not met.");
+ }
+ openMenu("quests");
+}
+function buyPotion(){
+ if(player.gold<30){notify("Not enough gold.");return}
+ player.gold-=30;player.potions++;
+ notify("Potion purchased.");openMenu("inventory");
+}
+function buySword(){
+ if(player.gold<100){notify("Not enough gold.");return}
+ if(player.attack>=35){notify("You already have a powerful sword.");return}
+ player.gold-=100;player.attack+=10;
+ player.weapon="Knight's Blade";
+ notify("Weapon upgraded!");openMenu("inventory");
+}
+function closeMenu(){
+ menuOpen=false;
+ document.getElementById("overlay").style.display="none";
+}
+
+document.addEventListener("keydown",e=>{
+ let k=e.key.toLowerCase();
+ keys[k]=true;
+ if([" ","arrowup","arrowdown","arrowleft","arrowright"].includes(k))e.preventDefault();
+ if(k===" "){attack()}
+ if(k==="q")castSpell();
+ if(k==="e")usePotion();
+ if(k==="i"&&!menuOpen)openMenu("inventory");
+ if(k==="j"&&!menuOpen)openMenu("quests");
+ if(k==="c"&&!menuOpen)openMenu("stats");
+ if(k==="escape"&&menuOpen)closeMenu();
+ if(k==="r"&&dead)respawn();
+});
+document.addEventListener("keyup",e=>keys[e.key.toLowerCase()]=false);
+
+canvas.addEventListener("mousemove",e=>{
+ let rect=canvas.getBoundingClientRect();
+ let mx=e.clientX-rect.left;
+ let my=e.clientY-rect.top;
+ player.facing=Math.atan2(my-H/2,mx-W/2);
+});
+canvas.addEventListener("mousedown",e=>{
+ if(e.button===0)attack();
+});
+
+function respawn(){
+ dead=false;
+ player.hp=player.maxHp;
+ player.mp=player.maxMp;
+ player.x=MAP*TILE/2;
+ player.y=MAP*TILE/2;
+ player.gold=Math.floor(player.gold*.8);
+ initWorld();
+ notify("You have returned to the Forgotten Lands.");
+}
+</script>
+</body>
+</html>
